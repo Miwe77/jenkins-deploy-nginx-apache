@@ -13,18 +13,20 @@ pipeline {
         }
         stage('Drop the containers'){   
             parallel{
-                stage('Drop apache container'){
+                stage('Drop Apache Container')
+                {
                     steps {
-                        echo 'droping the Apache container...'
+                        echo 'Droping the Apache container...'
                         sh 'docker rm -f app-web-apache'
-                    }
+                    }  
                 }
-                stage('Drop Nginx Container'){
-                    steps{
-                        echo 'droping the Nginx container...'
+                stage('Drop Nginx Container')
+                {
+                    steps {
+                        echo 'Droping the Nginx container...'
                         sh 'docker rm -f app-web-nginx'
-                    }
-                }           
+                    }  
+                }
             }
         }
         //Creating the containers in Parallel
